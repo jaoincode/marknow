@@ -11,7 +11,11 @@ module.exports = {
       "my-white-200": "#EBEBEB",
       "my-blue-100": "#0099FF",
     },
-    extend: {},
+    extend: {
+      fontFamily: {
+        poppins: ["Poppins"],
+      },
+    },
   },
   plugins: [],
 };
