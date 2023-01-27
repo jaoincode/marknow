@@ -1,7 +1,9 @@
+import AppRoutes from "./Routes";
+
 function App() {
   return (
-    <div className="App">
-      <h1 className="font-poppins font-bold">Oi</h1>
+    <div className="App bg-myblack-200">
+      <AppRoutes />
     </div>
   );
 }
