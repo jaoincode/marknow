@@ -28,6 +28,7 @@ function Login() {
               onChange={({ target }) => setEmail(target.value)}
               id="loginEmail"
               type="email"
+              error="Invalid e-mail"
             />
             <Input
               placeholder="strong password"
@@ -35,6 +36,7 @@ function Login() {
               onChange={({ target }) => setPassword(target.value)}
               id="loginPassword"
               type="password"
+              error="Incorrect password"
             />
             <button className="w-full text-mywhite-100 font-semibold h-12 bg-myblue-100 text-left pl-4 rounded-lg hover:bg-blue-500 transition-colors">
               Login in your account
