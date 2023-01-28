@@ -114,6 +114,11 @@ function Login() {
         </div>
       </div>
       <img src={WaveImg} className="min-w-screen fixed bottom-0" />
+      <div className="z-30 relative text-white text-center mb-5 font-medium">
+        <a href="https://github.com/jaoincode" target="_blank">
+          @jaoincode
+        </a>
+      </div>
     </>
   );
 }
