@@ -4,9 +4,43 @@ import WaveImg from "../../assets/wave.svg";
 
 import Input from "../../Components/Input";
 
+import { emailValidation } from "../../utils/loginValidation";
+
 function Login() {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
+
+  const [errors, setErrors] = useState({
+    email: "",
+    password: "",
+  });
+
+  const validateFields = () => {
+    let hasErrors = false;
+
+    if (!emailValidation(email)) {
+      setErrors((prevErrors) => ({ ...prevErrors, email: "Invalid email" }));
+      hasErrors = true;
+    } else {
+      setErrors((prevErrors) => ({ ...prevErrors, email: "" }));
+    }
+
+    if (password.length < 6) {
+      setErrors((prevErrors) => ({
+        ...prevErrors,
+        password: "Invalid password",
+      }));
+      hasErrors = true;
+    } else {
+      setErrors((prevErrors) => ({ ...prevErrors, password: "" }));
+    }
+
+    return !hasErrors;
+  };
+
+  const handleLogin = () => {
+    validateFields();
+  };
 
   return (
     <>
@@ -28,7 +62,7 @@ function Login() {
               onChange={({ target }) => setEmail(target.value)}
               id="loginEmail"
               type="email"
-              error="Invalid e-mail"
+              error={errors.email}
             />
             <Input
               placeholder="strong password"
@@ -36,15 +70,25 @@ function Login() {
               onChange={({ target }) => setPassword(target.value)}
               id="loginPassword"
               type="password"
-              error="Incorrect password"
+              error={errors.password}
             />
-            <button className="w-full text-mywhite-100 font-semibold h-12 bg-myblue-100 text-left pl-4 rounded-lg hover:bg-blue-500 transition-colors">
+            <button
+              className="w-full text-mywhite-100 font-semibold h-12 bg-myblue-100 text-left pl-4 rounded-lg hover:bg-blue-500 transition-colors"
+              type="button"
+              onClick={handleLogin}
+            >
               Login in your account
             </button>
-            <button className="w-full text-mywhite-100 font-semibold h-12 bg-red-700 text-left pl-4 rounded-lg hover:bg-red-900 transition-colors">
+            <button
+              className="w-full text-mywhite-100 font-semibold h-12 bg-red-700 text-left pl-4 rounded-lg hover:bg-red-900 transition-colors"
+              type="button"
+            >
               Register new account
             </button>
-            <button className="w-full text-myblack-200 font-semibold h-12 bg-mywhite-100 text-left pl-4 rounded-lg hover:bg-mywhite-200 transition-colors">
+            <button
+              className="w-full text-myblack-200 font-semibold h-12 bg-mywhite-100 text-left pl-4 rounded-lg hover:bg-mywhite-200 transition-colors"
+              type="button"
+            >
               Login with Google
             </button>
           </form>
