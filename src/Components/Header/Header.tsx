@@ -1,5 +1,5 @@
 import FileIcon from "../../assets/file.svg";
-import HamburguerIcon from "../../assets/hamburguer.svg";
+import BackIcon from "../../assets/back.svg";
 import SaveIcon from "../../assets/save.svg";
 import TrashIcon from "../../assets/trash.svg";
 
@@ -9,9 +9,11 @@ function Header() {
   return (
     <header className="w-full flex p-2 md:p-4 items-center h-14 bg-mygray-100 fixed justify-between">
       <div className="flex items-center">
-        <button aria-label="Menu" className="w-7 md:w-9 ">
-          <img src={HamburguerIcon} />
-        </button>
+        {isOnFile && (
+          <button aria-label="Back to menu" className="w-7 md:w-9 ">
+            <img src={BackIcon} />
+          </button>
+        )}
         <h1 className="font-bold text-mywhite-200 mx-2 md:text-lg">marknow</h1>
         {isOnFile && (
           <div className="flex items-center md:mx-7">
