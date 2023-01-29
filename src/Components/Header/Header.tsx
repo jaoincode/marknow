@@ -3,8 +3,18 @@ import BackIcon from "../../assets/back.svg";
 import SaveIcon from "../../assets/save.svg";
 import TrashIcon from "../../assets/trash.svg";
 
+import { useEffect, useState } from "react";
+import { useLocation } from "react-router-dom";
+
 function Header() {
-  const isOnFile = true;
+  const [isOnFile, setIsOnFile] = useState(false);
+
+  const location = useLocation();
+
+  useEffect(() => {
+    if (location.pathname === "/") setIsOnFile(false);
+    else setIsOnFile(true);
+  }, [location]);
 
   return (
     <header className="w-full flex p-2 md:p-4 items-center h-14 bg-mygray-100 fixed justify-between">
