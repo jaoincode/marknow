@@ -1,5 +1,10 @@
 import { useState } from "react";
+
 import Header from "../../Components/Header";
+
+import ReactMarkdown from "react-markdown";
+import remarkGfm from "remark-gfm";
+import rehypeRaw from "rehype-raw";
 
 function View() {
   const [text, setText] = useState("");
@@ -22,11 +27,12 @@ function View() {
           <h3 className="bg-mygray-300 p-2 font-semibold text-mywhite-100 text-lg ">
             preview
           </h3>
-          <textarea
+          <ReactMarkdown
+            children={text}
             className="resize-none h-96 md:h-full bg-myblack-100 p-2 text-mywhite-100 outline-none border-none"
-            disabled={true}
-            value={text}
-          ></textarea>
+            rehypePlugins={[rehypeRaw]}
+            remarkPlugins={[remarkGfm]}
+          />
         </div>
       </div>
     </section>
