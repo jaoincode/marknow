@@ -23,13 +23,13 @@ function View() {
             onChange={({ target }) => setText(target.value)}
           ></textarea>
         </div>
-        <div className="flex flex-col md:w-1/2">
+        <div className="flex flex-col md:w-1/2 preview">
           <h3 className="bg-mygray-300 p-2 font-semibold text-mywhite-100 text-lg ">
             preview
           </h3>
           <ReactMarkdown
             children={text}
-            className="resize-none h-96 md:h-full bg-myblack-100 p-2 text-mywhite-100 outline-none border-none"
+            className="h-96 md:h-full bg-myblack-100 p-2 text-mywhite-100 break-words overflow-auto"
             rehypePlugins={[rehypeRaw]}
             remarkPlugins={[remarkGfm]}
           />

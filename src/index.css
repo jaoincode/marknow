@@ -3,3 +3,52 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+.preview h1 {
+  font-weight: bold;
+  font-size: 30px;
+}
+
+.preview h2 {
+  font-weight: bold;
+  font-size: 24px;
+}
+
+.preview h3 {
+  font-weight: 500;
+  font-size: 20px;
+}
+
+.preview h4,
+.preview h5,
+.preview h6 {
+  font-weight: normal;
+  font-size: 18px;
+}
+
+.preview li {
+  list-style: circle;
+  margin-left: 20px;
+}
+
+.preview code {
+  font-size: 13px;
+  border: 1px solid #fff;
+  padding: 5px;
+  margin: 5px 0;
+}
+
+.preview blockquote {
+  border: 1px solid #fff;
+  border-radius: 10px;
+  padding: 5px;
+  margin: 5px 0;
+}
+
+.preview a {
+  color: deepskyblue;
+}
+
+.preview img {
+  width: 100%;
+}
