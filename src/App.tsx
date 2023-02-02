@@ -1,9 +1,9 @@
-import AppRoutes from "./Routes";
+import Home from "./pages/Home";
 
 function App() {
   return (
-    <div className="App bg-myblack-200 min-h-screen ">
-      <AppRoutes />
+    <div className="bg-myblack-200 min-h-screen ">
+      <Home />
     </div>
   );
 }
